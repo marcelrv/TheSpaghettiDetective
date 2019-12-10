@@ -211,6 +211,7 @@ def send_timelapse_detection_done_email(_print):
     }
     LOGGER.warn("ctx content")
     LOGGER.warn(ctx)
+    
     emails = [email.email for email in EmailAddress.objects.filter(user=_print.user)]
     message = get_template('email/upload_print_processed.html').render(ctx)
     msg = EmailMessage(subject, message,
